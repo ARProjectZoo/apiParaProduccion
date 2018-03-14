@@ -2,7 +2,7 @@
 use \Model\Users;
 use Firebase\JWT\JWT;
 
-class Stories extends Base
+class Controller_Stories extends Controller_Base
 {
   	public function post_create()
     {
@@ -98,7 +98,7 @@ class Stories extends Base
   
 	private function newStory($input, $photoToSave, $decodedToken)
     {
-    	$story = new Stories();
+    	$story = new Model_Stories();
         $story->photo = $photoToSave;
         $story->comment = $input['comment'];
         $story->date = $input['date'];
@@ -128,7 +128,7 @@ class Stories extends Base
     	 if($arrayAuthenticated['authenticated']){
     		 $decodedToken = JWT::decode($arrayAuthenticated["data"], MY_KEY, array('HS256'));
     		 if(!empty($_POST['id'])){
-	       		 $story = Stories::find($_POST['id']);
+	       		 $story = Model_Stories::find($_POST['id']);
 	       		 if(isset($story)){
 		       		 if($decodedToken->id == $story->id_user){
 			       		 $story->delete(); 
@@ -183,7 +183,7 @@ class Stories extends Base
 	    		if(isset($_GET['idStory']))
 	    		{
 	    			$idStory = $_GET['idStory'];
-	    			$story = Stories::find('all',
+	    			$story = Model_Stories::find('all',
 	    											array('where' => array(
 			            							array('id_user', '=', $decodedToken->id),
 			            							array('id', '=', $idStory) 
@@ -206,7 +206,7 @@ class Stories extends Base
 	    		}
 	    		else
 	    		{
-		    		$stories = Stories::find('all', 
+		    		$stories = Model_Stories::find('all', 
 				            						array('where' => array(
 				            							array('id_user', '=', $decodedToken->id), 
 				            							)

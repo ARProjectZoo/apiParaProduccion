@@ -1,6 +1,6 @@
 <?php
 
-class Stories extends Orm\Model 
+class Model_Stories extends Orm\Model 
 {
     protected static $_table_name = 'Stories';
     protected static $_primary_key = array('id');

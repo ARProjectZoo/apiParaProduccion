@@ -1,7 +1,7 @@
 <?php
 use \Model\Elements;
 use Firebase\JWT\JWT;
-class Elements extends Base
+class Controller_Elements extends Controller_Base
 {
  private  $idAdmin = 1;
    
@@ -124,7 +124,7 @@ class Elements extends Base
 
  private function newElement($input)
  {
-  $element = Elements();
+  $element = Model_Elements();
   $element->name = $input['name'];
   $element->description = $input['description'];
   $element->photo = "";
@@ -136,7 +136,7 @@ class Elements extends Base
  }
  private function saveElement($element)
     {
-     $elementExists = Elements::find('all', 
+     $elementExists = Model_Elements::find('all', 
             array('where' => array(
                  array('name', '=', $element->name),
                   )
@@ -236,7 +236,7 @@ class Elements extends Base
               if ($decodedToken->id != 1)
               {
 
-              $elements = Elements::find('all');
+              $elements = Model_Elements::find('all');
                 if(!empty($elements)){
                   foreach ($elements as $key => $element) {
                     $arrayElement[] = $element;

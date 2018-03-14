@@ -1,6 +1,6 @@
 <?php
 
-class Continent extends Orm\Model 
+class Model_Continent extends Orm\Model 
 {
     protected static $_table_name = 'continent';
     protected static $_primary_key = array('id');
