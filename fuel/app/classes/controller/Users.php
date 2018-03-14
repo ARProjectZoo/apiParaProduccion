@@ -1,7 +1,7 @@
 <?php
 use \Model\Users;
 use Firebase\JWT\JWT;
-class Controller_Users extends Controller_Base
+class Users extends Base
 {
     private  $idAdmin = 1;
     private  $idUser = 2;
@@ -42,7 +42,7 @@ class Controller_Users extends Controller_Base
     }
     private function newUser($input)
     {
-    		$user = new Model_Users();
+    		$user = new Users();
             $user->userName = $input['userName'];
             $user->password = $this->encode($input['password']);
             $user->email = $input['email'];
@@ -56,7 +56,7 @@ class Controller_Users extends Controller_Base
 
     private function saveUser($user)
     {
-    	$userExists = Model_Users::find('all', 
+    	$userExists = Users::find('all', 
     								array('where' => array(
     													array('email', '=', $user->email),
     														)
@@ -79,7 +79,7 @@ class Controller_Users extends Controller_Base
 	        	return $this->respuesta(400, 'Alguno de los datos esta vacio', '');
 	        }else if( !empty($_POST['email']) && !empty($_POST['password'])){
 	            $input = $_POST;
-	            $user = Model_Users::find('all', 
+	            $user = Users::find('all', 
 		            						array('where' => array(
 		            							array('email', '=', $input['email']), 
 		            							array('password', '=', $this->encode($input['password']))
@@ -119,7 +119,7 @@ class Controller_Users extends Controller_Base
 			if ( !isset($_POST['userName']) || !isset($_POST['email']) ) {
 				return $this->respuesta(400, 'alguno de los datos esta vacio', '');
 	        }else if( !empty($_POST['userName']) && !empty($_POST['email'])){
-		    	$user = Model_Users::find('all', 
+		    	$user = Users::find('all', 
 		           					array('where' => array(
 		           							array('userName', '=', $input['userName']), 
 		           							array('email', '=', $input['email'])
@@ -156,7 +156,7 @@ class Controller_Users extends Controller_Base
 			$newPassword = $_POST['newPassword'];
 			if( isset($newPassword)) {
 				$decodedToken = $this->decodeToken();
-				$user = Model_Users::find('all', 
+				$user = Users::find('all', 
 				            					array('where' => array(
 				            							array('userName', '=', $decodedToken->userName), 
 				            							array('password', '=', $decodedToken->email)
@@ -166,7 +166,7 @@ class Controller_Users extends Controller_Base
 				if(isset($newPassword)){
 					if(!empty($newPassword)){
 						if(strlen($newPassword) >= 5){
-							$userTochange = Model_Users::find($decodedToken->id);
+							$userTochange = Users::find($decodedToken->id);
 							$userTochange ->password = $this->encode($newPassword);
 							$userTochange -> save();
 
@@ -266,7 +266,7 @@ class Controller_Users extends Controller_Base
     
     	 if($arrayAuthenticated['authenticated']){
 	    		$decodedToken = JWT::decode($arrayAuthenticated["data"], MY_KEY, array('HS256'));
-	    		$user = Model_Users::find($decodedToken->id);		
+	    		$user = Users::find($decodedToken->id);		
 	        try {
 		        	if (!isset($_FILES['photo_path']) || empty($_FILES['photo_path'])) 
 		            {

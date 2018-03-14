@@ -1,23 +1,23 @@
 <?php
 use \Model\Continent;
 
-class Controller_Continent extends Controller_Base
+class Continent extends Base
 {
 	public function post_configContinent()
 	{
-		$typeAfrica = new Model_Continent();
+		$typeAfrica = new Continent();
 		$typeAfrica->type = 'Africa';
-		$typeAsia = new Model_Continent();
+		$typeAsia = new Continent();
 		$typeAsia->type = 'Asia';
-		$typeAN = new Model_Continent();
+		$typeAN = new Continent();
 		$typeAN->type = 'America del Norte';
-		$typeAS = new Model_Continent();
+		$typeAS = new Continent();
 		$typeAS->type = 'America del Sur';
-		$typeACyC = new Model_Continent();
+		$typeACyC = new Continent();
 		$typeACyC->type = 'America central y Caribe';
-		$typeEU = new Model_Continent();
+		$typeEU = new Continent();
 		$typeEU->type = 'Europa';
-		$typeOceania = new Model_Continent();
+		$typeOceania = new Continent();
 		$typeOceania->type = 'Oceania';
 
 		

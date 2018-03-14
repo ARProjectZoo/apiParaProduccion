@@ -1,7 +1,7 @@
 <?php
 use \Model\Animals;
 use Firebase\JWT\JWT;
-class Controller_Animals extends Controller_Base
+class Animals extends Base
 {
  
    public function post_create()
@@ -202,7 +202,7 @@ public function post_delete()
               if ($decodedToken->id != 1)
               {
 
-              $animals = Model_Animals::find('all');
+              $animals = Animals::find('all');
                 if(!empty($animals)){
                   foreach ($animals as $key => $animal) {
                     $arrayAnimals[] = $animal;
@@ -237,7 +237,7 @@ public function post_delete()
 
       private function newAnimal($input)
       {
-      $animal = Model_Animals();
+      $animal = Animals();
       $animal->name = $input['name'];
       $animal->description = $input['description'];
       $animal->photo = "";
@@ -252,7 +252,7 @@ public function post_delete()
      
      private function saveAnimal($animal)
      {
-         $animalExists = Model_Animals::find('all', 
+         $animalExists = Animals::find('all', 
                 array('where' => array(
            array('name', '=', $animal->name),
                       )

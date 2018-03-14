@@ -2,7 +2,7 @@
 use \Firebase\JWT\JWT;
 define('MY_KEY', 'tokens_key');
 define('ID_ADMIN', 1);
-class Controller_Base extends Controller_Rest
+class Base extends Controller_Rest
 {
 	private static $secret_key = 'ARZOO';
     private static $encrypt = ['HS256'];

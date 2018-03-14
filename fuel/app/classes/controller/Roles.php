@@ -1,13 +1,13 @@
 <?php
 use \Model\Users;
 
-class Controller_Roles extends Controller_Base
+class Roles extends Base
 {
 	public function post_configRoles()
 	{
-		$roleAdmin = new Model_Roles();
+		$roleAdmin = new Roles();
 		$roleAdmin->type = 'Admin';
-		$roleUser = new Model_Roles();
+		$roleUser = new Roles();
 		$roleUser->type = 'User';
 		$roleAdmin->save();
 		$roleUser->save();

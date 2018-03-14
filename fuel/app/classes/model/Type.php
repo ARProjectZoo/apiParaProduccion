@@ -1,6 +1,6 @@
 <?php
 
-class Model_Type extends Orm\Model 
+class Type extends Orm\Model 
 {
     protected static $_table_name = 'type';
     protected static $_primary_key = array('id');

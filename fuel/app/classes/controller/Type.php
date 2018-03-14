@@ -1,13 +1,13 @@
 <?php
 use \Model\Type;
 
-class Controller_Type extends Controller_Base
+class Type extends Base
 {
 	public function post_configType()
 	{
-		$typeRest = new Model_Type();
+		$typeRest = new Type();
 		$typeRest->name = 'Restaurantes';
-		$typeExh = new Model_Type();
+		$typeExh = new Type();
 		$typeExh->name = 'Exhibiciones';
 		
 		$typeRest->save();
