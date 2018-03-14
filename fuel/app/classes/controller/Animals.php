@@ -1,6 +1,4 @@
 <?php
-
-use Firebase\JWT\JWT;
 class Controller_Animals extends Controller_Base
 {
  

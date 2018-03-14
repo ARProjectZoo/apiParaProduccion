@@ -1,6 +1,6 @@
 <?php
 
-use Firebase\JWT\JWT;
+
 class Controller_Users extends Controller_Base
 {
     private  $idAdmin = 1;
