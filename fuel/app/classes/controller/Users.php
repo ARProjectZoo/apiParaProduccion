@@ -1,5 +1,5 @@
 <?php
-use \Model\Users;
+
 use Firebase\JWT\JWT;
 class Controller_Users extends Controller_Base
 {

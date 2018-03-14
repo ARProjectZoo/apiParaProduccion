@@ -1,5 +1,5 @@
 <?php
-use \Model\Users;
+
 
 class Controller_Roles extends Controller_Base
 {

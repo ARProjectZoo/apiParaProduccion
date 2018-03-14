@@ -1,5 +1,5 @@
 <?php
-use \Model\Type;
+
 
 class Controller_Type extends Controller_Base
 {
