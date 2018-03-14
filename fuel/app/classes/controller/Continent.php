@@ -1,5 +1,5 @@
 <?php
-use \Model\Continent;
+
 
 class Controller_Continent extends Controller_Base
 {
