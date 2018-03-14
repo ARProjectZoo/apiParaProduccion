@@ -1,5 +1,4 @@
 <?php
-use \Model\Users;
 use Firebase\JWT\JWT;
 
 class Controller_Stories extends Controller_Base
